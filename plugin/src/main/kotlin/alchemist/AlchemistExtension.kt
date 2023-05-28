@@ -1,6 +1,14 @@
 package alchemist
 
-data class SpecConfig(
+import org.gradle.api.provider.ListProperty
+import org.gradle.api.tasks.Nested
+
+abstract class AlchemistExtension {
+    @get:Nested
+    abstract val specs: ListProperty<SpecConfig>
+}
+
+data class SpecConfig (
     val name: String,
     val specPath: String,
     val outputDir: String,

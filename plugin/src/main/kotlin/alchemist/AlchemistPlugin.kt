@@ -3,14 +3,10 @@ package alchemist
 import java.util.Locale
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.TaskContainer
 import org.gradle.kotlin.dsl.create
 import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
-interface AlchemistPluginExtension {
-    val specs: ListProperty<SpecConfig>
-}
 
 @Suppress("unused")
 class AlchemistPlugin : Plugin<Project> {
@@ -29,7 +25,7 @@ class AlchemistPlugin : Plugin<Project> {
          */
         val extension = project
             .extensions
-            .create<AlchemistPluginExtension>("alchemist")
+            .create<AlchemistExtension>("alchemist")
 
         project.afterEvaluate {
             extension
