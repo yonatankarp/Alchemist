@@ -14,9 +14,9 @@ class AlchemistPluginTest {
     @Test fun `plugin registers task`() {
         // Create a test project and apply the plugin
         val project = ProjectBuilder.builder().build()
-        project.plugins.apply("alchemist.greeting")
+        project.plugins.apply("com.yonatankarp.alchemist")
 
         // Verify the result
-        assertNotNull(project.tasks.findByName("greeting"))
+        assertNotNull(project.tasks.findByName("generateOpenApiSpecs"))
     }
 }
